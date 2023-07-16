@@ -43,7 +43,7 @@ if __name__ == "__main__":
     # for col in datetime_columns:
     #     bus_data[col] = pd.to_datetime(bus_data[col], format="%Y-%m-%d-%H-%M")
     
-    delta_columns = ['delta_stop1_to_stop2', 'delta_stop2_to_stop3', 'delta_stop3_to_stop4']
+    delta_columns = ['t_stop1_to_stop2', 't_stop2_to_stop3', 't_stop3_to_stop4']
     
     # Изваждаме реалните времена на спирките едно от друго за да получим пропътуваното време между тях
     bus_data[delta_columns] = \
@@ -55,21 +55,21 @@ if __name__ == "__main__":
             
     
     fig, ax = plt.subplots()
-    ax.plot(bus_data.sched_1_355, bus_data.delta_stop1_to_stop2, 'r')
+    ax.plot(bus_data.sched_1_355, bus_data.t_stop1_to_stop2, 'r')
     ax.set_title('stop_1_355 до stop_2_1035')
     ax.set_xlabel('sched_1_355')
     ax.set_ylabel('Време в движение (секунди)')
     ax.grid()
 
     fig, ax = plt.subplots()
-    ax.plot(bus_data.sched_2_1035, bus_data.delta_stop2_to_stop3, 'g')
+    ax.plot(bus_data.sched_2_1035, bus_data.t_stop2_to_stop3, 'g')
     ax.set_title('stop_2_1035 до stop_3_418')
     ax.set_xlabel('sched_2_1035')
     ax.set_ylabel('Време в движение (секунди)')
     ax.grid()
 
     fig, ax = plt.subplots()
-    ax.plot(bus_data.sched_3_418, bus_data.delta_stop3_to_stop4, 'b')
+    ax.plot(bus_data.sched_3_418, bus_data.t_stop3_to_stop4, 'b')
     ax.set_title('stop_3_418 до stop_4_2543')
     ax.set_xlabel('sched_3_418')
     ax.set_ylabel('Време в движение (секунди)')
