@@ -37,6 +37,15 @@ buses_main.columns
 #buses_main.dtypes
 
 
+#plot data with plotly
+import pandas as pd
+import plotly.express as px
+
+
+fig = px.line(df, x='sched_1_355', y='stay_1_355')
+fig.show()
+
+
 #to convert variable to datetime
 .....
 
