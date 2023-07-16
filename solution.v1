@@ -1,1 +1,45 @@
+#To import needed libraries for the exercise and read the data
+
+import pandas as pd
+import numpy as np
+from datetime import date
+import matplotlib.pyplot as plt
+
+buses_main = pd.read_csv("https://raw.githubusercontent.com/mic00s/Summer-School-2023/main/raw%20data/raw_data.csv")
+buses_weather = pd.read_csv("https://raw.githubusercontent.com/mic00s/Summer-School-2023/main/raw%20data/weather_data.csv")
+
+
+##to see the columns
+buses_main.columns
+#buses_weather.columns
+
+##to see number of rows
+#len(buses_main)
+#len(buses_weather)
+
+##to check for missing values
+
+#buses_main.isnull().mean()  #-> no missing values
+
+#buses_weather.isnull().mean() #-> no missing values
+
+
+#get descriptive summary statistics
+
+#buses_main.describe()
+
+#buses_weather.describe()
+
+#type of data
+#buses_main.dtypes
+
+
+#to convert variable to datetime
+.....
+
+
+# to detect outliers in the data
+....
+
+
 
