@@ -1,2 +1,4 @@
 ## Data Preprocessing
-##The first stage of the modeling process will involve cleaning and pre-processing the data. This will include handling missing values, dealing with outliers, and encoding categorical variables such as 'day of the week' or 'season'. Time-based features like 'hour of the day', 'day of the week', 'month', and 'season' will be extracted from the timestamp.
+##The first stage of the modeling process will involve cleaning and pre-processing the data. 
+##This will include handling missing values, dealing with outliers, and encoding categorical variables such as 'day of the week' or 'season'. 
+##Time-based features like 'hour of the day', 'day of the week', 'month', and 'season' will be extracted from the timestamp.
