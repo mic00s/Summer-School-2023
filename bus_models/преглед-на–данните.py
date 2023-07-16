@@ -14,6 +14,7 @@ from datetime import datetime, timedelta
 def parse_datetime(timestamp):
     '''
     Превръща базираната на 1900-01-01 timestamp ISO форматирана дата
+    Източник: https://stackoverflow.com/questions/68482380/strange-date-format-conversion
 
     Параметри
     ----------
