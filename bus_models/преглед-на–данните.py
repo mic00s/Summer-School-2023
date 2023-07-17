@@ -7,6 +7,7 @@ Created on Sat Jul 15 19:17:41 2023
 """
 
 import pandas as pd
+import numpy as np
 # from pathlib import Path
 import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
@@ -57,6 +58,7 @@ if __name__ == "__main__":
     
     fig, ax = plt.subplots()
     ax.plot(bus_data.sched_1_355, bus_data.t_stop1_to_stop2, 'r')
+    ax.axhline(np.mean(bus_data.t_stop1_to_stop2), c='k', ls='--', lw=1)
     ax.set_title('stop_1_355 до stop_2_1035')
     ax.set_xlabel('sched_1_355')
     ax.set_ylabel('Време в движение (секунди)')
@@ -64,6 +66,7 @@ if __name__ == "__main__":
 
     fig, ax = plt.subplots()
     ax.plot(bus_data.sched_2_1035, bus_data.t_stop2_to_stop3, 'g')
+    ax.axhline(np.mean(bus_data.t_stop2_to_stop3), c='k', ls='--', lw=1)
     ax.set_title('stop_2_1035 до stop_3_418')
     ax.set_xlabel('sched_2_1035')
     ax.set_ylabel('Време в движение (секунди)')
@@ -71,6 +74,7 @@ if __name__ == "__main__":
 
     fig, ax = plt.subplots()
     ax.plot(bus_data.sched_3_418, bus_data.t_stop3_to_stop4, 'b')
+    ax.axhline(np.mean(bus_data.t_stop3_to_stop4), c='k', ls='--', lw=1)
     ax.set_title('stop_3_418 до stop_4_2543')
     ax.set_xlabel('sched_3_418')
     ax.set_ylabel('Време в движение (секунди)')
