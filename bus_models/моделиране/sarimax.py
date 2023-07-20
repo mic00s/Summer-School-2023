@@ -51,9 +51,15 @@ ax.plot(bus_data.sched_1_355, bus_data.t_stop1_to_stop2, c='r')
 ax.axhline(bus_data.t_stop1_to_stop2.mean(), c='k', ls='--', lw=1)
 
 
-model = SARIMAX(bus_train.t_stop1_to_stop2, exog=weather_train, order=(1, 1, 1), seasonal_order=(0,0,0,0))
+model = SARIMAX(bus_train.t_stop1_to_stop2, exog=weather_train, order=(2, 1, 1), seasonal_order=(0,1,1,4))
 results = model.fit()
 print(results.summary())
-forecast = results.get_forecast(steps=len(bus_test), exog=weather_test)
-predicted_values = forecast.predicted_mean
-ax.plot(bus_data.sched_1_355[ntrain:], predicted_values)
+# forecast = results.get_forecast(steps=len(bus_test), exog=weather_test)
+predicted = results.get_prediction(start=ntrain, end=len(bus_data)-1, exog=weather_test)
+# predicted_values = forecast.predicted_mean
+
+# mean_pv = predicted_values.mean()
+# pv = 4* (predicted_values - mean_pv) + mean_pv
+# ax.plot(bus_data.sched_1_355[ntrain:], pv)
+
+ax.plot(bus_data.sched_1_355[ntrain:], predicted.predicted_mean)
