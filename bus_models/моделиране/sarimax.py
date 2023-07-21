@@ -46,21 +46,20 @@ weather_data_short = weather_data[['humidity', 'rain_1h', 'clouds_all']]
 
 start_of_the_last_two_weeks = bus_data.sched_1_355[-1] - timedelta(weeks=2)
 
-test_data_condition =bus_data.index >= start_of_the_last_two_weeks
+test_data_cutoff = bus_data.index >= start_of_the_last_two_weeks
 
-bus_train = bus_data.loc[~test_data_condition,:]
-bus_test = bus_data.loc[test_data_condition,:]
+bus_train = bus_data.loc[~test_data_cutoff,:]
+bus_test = bus_data.loc[test_data_cutoff,:]
 ntrain = len(bus_train)
 
-weather_train = weather_data_short.iloc[~test_data_condition,:]
-weather_test = weather_data_short.iloc[test_data_condition,:]
+weather_train = weather_data_short.iloc[~test_data_cutoff,:]
+weather_test = weather_data_short.iloc[test_data_cutoff,:]
 
 # --- SARIMAX на пропътувани времена между спирки ----
 
-
 delta = 't_stop1_to_stop2_original'
-order = (2, 1, 1)
-seasonal_order = (0,1,1,4)
+order = (3, 1, 2)
+seasonal_order = (1,1,1,4)
 c1 = 'r'
 c2 = 'c'
 
